@@ -1,0 +1,32 @@
+1. What does the dollar($) sign do?
+- It fixes the reference to the cell so that it remains locked and unchanged no matter where the formula moves.
+
+
+2. How to Change the Reference from Relative to Absolute (or Mixed)?
+- We can just lock the cell by adding ($) to the formula where we need to or simply use F4 key to do it.
+
+
+3. Explain the order of operations in excel?
+- Basically the order of operations in excel follows Addition, Subtraction, Parentheses,Multiplication, Division, etc
+- Any expressions in parentheses are evaluated, and it ensures that the certain opertions are performed first.
+- Excel will resolve references. This involves replacing cell references like A1 with the value from the cell, 
+  as well as evaluating range references like A1:A5, which become arrays of values. 
+
+
+4. What, according to you, are the top 5 functions in excel and write a basic syntax
+for any of two?
+- SUM,FIND,IF,VLOOKUP,DATE
+  syntax :  SUM  (=SUM(A2:A10)) Which adds the values from A2 to A10 cells.
+            FIND ("o","flower") which will find the position of letter "o" from the word "flower"
+
+
+5. When would you use the subtotal function?
+- Subtotal function can be only used for column data (veritical range).
+
+
+6. What is the syntax of the vlookup function? Explain the terms in it?
+-   =VLOOKUP(What you want to look up, where you want to look for it, 
+             the column number in the range containing the value to return, 
+             return an Approximate or Exact match which indicated as 1/TRUE, or 0/FALSE)
+
+
