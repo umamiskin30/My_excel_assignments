@@ -1,0 +1,114 @@
+1. What are comments and what is the importance if commenting in any code?
+- Comments are lines of text within a code that are not executed by the computer or programming language. They are used to provide information/explanations for developers. Comments are meant for human readers to understand the code better, and they have no impact on the execution or functionality of the program.
+
+The importance of commenting in code are:
+
+* Code Readability: Well-commented code is easier to read and understand. Comments provide context, explanations, and clarify the intention behind the code. They make it easier for developers (including werself) to navigate and comprehend the codebase.
+
+* Code Maintenance: Comments serve as documentation that helps during code maintenance and updates. When revisiting code after a long time or when collaborating with other developers, comments can help we remember the purpose, logic, and functionality of specific code segments. They make it easier to identify and fix bugs or make enhancements to the code.
+
+* Code Collaboration: Comments improve collaboration among developers. When multiple developers work on the same project, comments help in communicating ideas, strategies, and solutions. They make it easier for others to understand wer code and contribute to it effectively.
+
+* Debugging and Troubleshooting: Comments can be valuable during debugging and troubleshooting. When encountering errors or unexpected behavior, comments can provide insights into the code's intended functionality and aid in isolating issues.
+
+* Knowledge Transfer: Comments act as a means of knowledge transfer. When sharing code or working in a team, comments help new team members understand existing codebases more quickly. They provide valuable information about code structures, algorithms, and logic.
+
+* Self-Documentation: Comments can serve as self-documentation, providing future reference for werself or other developers who might need to work on the code later. They can help we recall wer thought process, decisions, or considerations made during code development.
+
+
+
+
+2. What is Call Statement and when do you use this statement?
+- The Call statement is used to invoke a procedure in a code. It provides a way to execute a specific procedure and pass any required arguments.
+  The Call statement is optional and can be omitted in most cases. we can invoke a procedure without using the `Call` statement simply by writing the procedure name followed by the arguments          in parentheses.
+
+
+
+
+3. How do you compile a code in VBA? What are some of the problem that you might face when you don’t compile a code?
+- In VBA the code compilation process is automatic, and we don't need to explicitly compile the code. When we write or modify code in the VBA editor, the code is compiled on the fly as we save or run it. The VBA compiler checks for syntax errors and compiles the code into an executable format that can be executed by the VBA runtime.
+
+However, not compiling wer code or ignoring potential compilation issues can lead to various problems:
+
+* Syntax Errors: If we have syntax errors in wer code, the VBA compiler will detect them during the compilation process. Syntax errors occur when code is written incorrectly or violates the VBA language rules. Without compiling the code, these errors will go unnoticed, and wer code will fail to execute properly.
+
+* Runtime Errors: Compiling wer code helps identify potential runtime errors. These errors occur when there is an issue with the logic or execution of wer code. By not compiling wer code, we might miss these errors, and wer program may behave unexpectedly or crash during runtime.
+
+* Undeclared Variables or Incorrect Data Types: The VBA compiler also checks for undeclared variables or incorrect data types during compilation. If we don't compile wer code, we might miss these issues, leading to bugs or unexpected behavior in wer program.
+
+* Code Optimization: Compiling wer code allows the VBA compiler to perform certain optimizations. It can identify and eliminate redundant code, optimize variable usage, and improve performance. Without compilation, these optimization opportunities may be missed, resulting in less efficient code execution.
+
+* Missing References: VBA code can reference external libraries or objects. When we compile wer code, the VBA compiler verifies that the required references are available and properly configured. If we skip the compilation step, we might encounter issues related to missing or incorrect references, resulting in errors or unexpected behavior.
+
+
+
+4. What are hot keys in VBA? How can you create your own hot keys?
+- Hotkeys, also known as keyboard shortcuts, are combinations of keys that provide a quick and convenient way to perform certain actions or execute specific commands in VBA (Visual Basic   for Applications). Hotkeys allow we to access frequently used features or functionalities without having to navigate through menus or click buttons.
+
+In VBA, we can create wer own hotkeys by assigning a specific keyboard combination to trigger a particular procedure or action. Here's how we can create wer own hotkeys in VBA:
+
+-- Assigning Hotkeys to Macros: * Open the VBA editor by pressing "Alt + F11" in Excel or by selecting "Developer" > "Visual Basic" from the menu.
+                                *  In the VBA editor, find or create the module where wer macro is located.
+                                * Within the module, locate the Sub procedure that we want to assign a hotkey to.
+                                * At the top of the Sub procedure, add the following line of code:
+                                  ```vba
+                                  Application.OnKey "{werHotkey}", "werMacroName"
+                                  ```
+                                  Replace `{werHotkey}` with the desired keyboard combination, such as "{Ctrl}{Shift}A", and replace `"werMacroName"` with the name of wer Sub procedure.
+                                * Save wer code and close the VBA editor.
+   
+                                * whenever we press the specified hotkey combination, the associated macro or Sub procedure will be executed.
+
+
+
+
+
+5. What are the shortcut keys used to
+a. Run the code
+b. Step into the code
+c. Step out of code
+d. Reset the code
+
+- a. Run the code:
+   - F5: Pressing F5 will run the entire code or start execution from the current line.
+   - Ctrl + G: Opens the "Immediate Window" where we can type `?` followed by a line of code and press Enter to execute it.
+
+b. Step into the code:
+   - F8: Pressing F8 allows we to step through the code line by line, executing one line at a time. If a procedure call is encountered, it will step into that procedure and continue line     by line within it.
+
+c. Step out of code:
+   - Shift + F8: Pressing Shift + F8 allows we to step out of the current procedure and return to the calling procedure. It continues execution until the calling procedure is completed or another breakpoint is encountered.
+
+d. Reset the code:
+   - Ctrl + Break: Pressing Ctrl + Break stops the execution of the code and returns to the VBA editor. It can be used to halt code execution when it is taking too long or encountering an infinite loop.
+
+It's worth noting that these shortcut keys are commonly used in the VBA editor within applications like Excel, Word, or Access. However, the actual availability and behavior of shortcut keys can vary slightly depending on the version of VBA and the specific development environment we are using.
+
+Using these shortcut keys can significantly speed up the development and debugging process, allowing we to efficiently run, step through, and troubleshoot wer VBA code.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
