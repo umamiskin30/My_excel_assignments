@@ -1,0 +1,199 @@
+1. Write a VBA code to enter your name in A1 Cell using Input Box and once you enter the name display a message box that says the name has been entered.
+- Sub EnterName()
+    Dim name As String
+    
+    ' Prompt the user to enter their name using an input box
+    name = InputBox("Please enter your name:", "Enter Name")
+    
+    ' Check if the user entered a name
+    If Len(name) > 0 Then
+        ' Enter the name in cell A1
+        Range("A1").Value = name
+        
+        ' Display a message box with the confirmation
+        MsgBox "Name '" & name & "' has been entered.", vbInformation, "Name Entered"
+    End If
+End Sub
+
+
+
+
+
+2. What are Userforms? Why are they used? How to fill a list box using for loop.
+- UserForms are a feature in VBA (Visual Basic for Applications) that allow you to create custom dialog boxes or forms to interact with users. UserForms provide a graphical user interface (GUI) where you can add various controls such as buttons, text boxes, checkboxes, list boxes, etc. They are used to enhance the user experience, collect user input, display information, and perform specific tasks within Excel.
+
+Some common uses of UserForms include:
+
+1. **Data entry and validation**: UserForms can be used to collect data from users in a structured and controlled manner. You can include validation checks to ensure the entered data meets certain criteria or constraints.
+
+2. **Customized interfaces**: UserForms allow you to design custom interfaces with specific layouts, controls, and functionalities tailored to your specific needs. They provide a more user-friendly and intuitive way to interact with your VBA applications.
+
+3. **Report generation**: UserForms can be used to display information or generate reports based on user selections or inputs. You can present data in a structured and organized manner, making it easier for users to understand and analyze.
+
+4. **Automation and process automation**: UserForms can facilitate automation by allowing users to provide inputs, select options, or trigger specific actions. They can be used to automate repetitive tasks or streamline complex processes.
+Now, let's see how to fill a list box using a For loop in a UserForm:
+
+1. Open Excel and press `ALT + F11` to open the VBA editor.
+2. Insert a new UserForm by clicking on "Insert" > "UserForm" in the VBA editor.
+3. Double-click on the UserForm to open the code window for the UserForm.
+4. In the code window, add the following code:
+
+Private Sub UserForm_Initialize()
+    Dim i As Integer
+    
+    ' Loop from 1 to 10 and add items to the list box
+    For i = 1 To 10
+        ListBox1.AddItem "Item " & i
+    Next i
+End Sub
+
+
+
+
+
+
+3. What is an array? Write a VBA code to enter students and their marks from the below table.
+- An array is a data structure in VBA (Visual Basic for Applications) that allows you to store multiple values of the same data type in a single variable. Arrays provide a way to organize and access related data efficiently. You can think of an array as a collection of elements that are indexed, starting from 0, which allows you to access and manipulate individual elements based on their index.
+
+Here's an example of a VBA code to enter students and their marks using an array:
+
+Sub EnterStudentMarks()
+    Dim students() As String
+    Dim marks() As Double
+    Dim rowCount As Integer
+    Dim i As Integer
+    
+    ' Define the number of students
+    rowCount = 5
+    
+    ' Resize the arrays to accommodate the number of students
+    ReDim students(0 To rowCount - 1)
+    ReDim marks(0 To rowCount - 1)
+    
+    ' Loop through each student to enter their details
+    For i = 0 To rowCount - 1
+        ' Prompt the user to enter student name
+        students(i) = InputBox("Enter student name for row " & i + 2 & ":")
+        
+        ' Prompt the user to enter student marks
+        marks(i) = CDbl(InputBox("Enter marks for " & students(i) & ":"))
+    Next i
+    
+    ' Display the entered student names and marks
+    For i = 0 To rowCount - 1
+        Range("A" & i + 2).Value = students(i) ' Enter student name in column A
+        Range("B" & i + 2).Value = marks(i) ' Enter marks in column B
+    Next i
+End Sub
+
+
+In the above code, we declare two arrays `students()` and `marks()` to store the student names and their corresponding marks, respectively. The `rowCount` variable is used to define the number of students.
+
+The code prompts the user to enter the student name and marks in a loop for each student. The entered data is stored in the respective arrays.
+
+Finally, the code displays the entered student names in column A starting from row 2, and the marks in column B starting from row 2 using the `Range().Value` property.
+
+To use the code:
+
+1. Open Excel and press `ALT + F11` to open the VBA editor.
+2. Insert a new module by clicking on "Insert" > "Module" in the VBA editor.
+3. Copy and paste the above code into the new module.
+4. Save the workbook as a macro-enabled (.xlsm) file.
+5. Close the VBA editor.
+6. Press `ALT + F8` to open the "Macro" dialog box.
+7. Select the "EnterStudentMarks" macro and click "Run" to execute the code.
+8. The code will prompt you to enter the student names and their marks. Enter the details for each student.
+9. The entered student names and marks will be populated in columns A and B, respectively, starting from row 2.
+
+
+
+
+
+
+4. Use the following data to create a pie chart using VBA code. Use Font - ‘Times new Roman’, Size -14, Bold, Title - Piechart’ and you are per to use colours as per your taste.
+- To create a pie chart using VBA code with the given specifications, you can use the following example code:
+
+Sub CreatePieChart()
+    Dim chartRange As Range
+    Dim chartSheet As Worksheet
+    Dim chartObject As ChartObject
+    
+    ' Set the range for the chart data
+    Set chartRange = Worksheets("Sheet1").Range("A1:B5")
+    
+    ' Create a new chart sheet
+    Set chartSheet = ThisWorkbook.Charts.Add
+    
+    ' Set the chart data source
+    With chartSheet
+        .SetSourceData Source:=chartRange
+    End With
+    
+    ' Add a title to the chart
+    With chartSheet.Chart
+        .HasTitle = True
+        .ChartTitle.Text = "Pie Chart"
+    End With
+    
+    ' Set the font properties for the chart title
+    With chartSheet.Chart.ChartTitle.Font
+        .Name = "Times New Roman"
+        .Size = 14
+        .Bold = True
+    End With
+    
+    ' Apply a pie chart type
+    chartSheet.Chart.ChartType = xlPie
+    
+    ' Set color formatting for the chart slices
+    With chartSheet.Chart.SeriesCollection(1)
+        .Points(1).Format.Fill.ForeColor.RGB = RGB(255, 0, 0) ' Red color
+        .Points(2).Format.Fill.ForeColor.RGB = RGB(0, 255, 0) ' Green color
+        .Points(3).Format.Fill.ForeColor.RGB = RGB(0, 0, 255) ' Blue color
+        .Points(4).Format.Fill.ForeColor.RGB = RGB(255, 255, 0) ' Yellow color
+        .Points(5).Format.Fill.ForeColor.RGB = RGB(255, 0, 255) ' Magenta color
+    End With
+End Sub
+
+
+In the above code, we first define the range of data for the pie chart. Adjust the range (`A1:B5`) in the line `Set chartRange = Worksheets("Sheet1").Range("A1:B5")` according to the actual range of data in your worksheet.
+
+Next, we create a new chart sheet and set the data source for the chart using the defined range.
+
+Then, we add a title to the chart and set the font properties for the title.
+
+After that, we apply a pie chart type to the chart.
+
+Finally, we set the color formatting for the chart slices by specifying RGB values for each slice. You can modify the RGB values in the code to use colors of your preference.
+
+To use the code:
+
+1. Open Excel and press `ALT + F11` to open the VBA editor.
+2. Insert a new module by clicking on "Insert" > "Module" in the VBA editor.
+3. Copy and paste the above code into the new module.
+4. Save the workbook as a macro-enabled (.xlsm) file.
+5. Modify the range (`A1:B5`) in the line `Set chartRange = Worksheets("Sheet1").Range("A1:B5")` if needed.
+6. Close the VBA editor.
+7. Press `ALT + F8` to open the "Macro" dialog box.
+8. Select the "CreatePieChart" macro and click "Run" to execute the code.
+9. A new chart sheet will be created with the pie chart, and it will have the specified font, title, and colors for the slices.
+
+
+
+
+6. Write step by step procedure to protect your workbook using a password.
+To protect your workbook using a password in Excel, follow these step-by-step instructions:
+
+Step 1: Open the workbook you want to protect.
+
+Step 2: Click on the "File" tab in the Excel ribbon to access the backstage view.
+
+Step 3: From the backstage view, click on "Protect Workbook" and select "Encrypt with Password" from the dropdown menu.
+
+Step 4: A dialog box titled "Encrypt Document" will appear. In the "Password" field, enter the password you want to use to protect the workbook. Make sure to choose a strong and secure password. Note that passwords are case-sensitive.
+
+Step 5: Click "OK" to confirm the password and protect the workbook.
+
+Step 6: A dialog box will appear asking you to re-enter the password to confirm. Enter the password again and click "OK".
+
+Step 7: Your workbook is now protected with a password. When you try to open the workbook in the future, you will be prompted to enter the password.
